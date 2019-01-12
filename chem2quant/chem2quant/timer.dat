@@ -1,0 +1,88 @@
+
+Host: noh-SATELLITE-PRO-C50-A-136
+
+Timers On : Sat Jan  5 17:01:13 2019
+Timers Off: Sat Jan  5 17:01:37 2019
+
+Wall Time:       23.77 seconds
+
+JK: (A|mn)                  :      3.150u      0.017s      1.969w      1 calls
+JK: (A|Q)^-1/2              :      1.033u      0.017s      0.751w      1 calls
+JK: (Q|mn)                  :      1.367u      0.000s      0.828w      1 calls
+HF: Form H                  :      0.000u      0.000s      0.048w      1 calls
+HF: Form S/X                :      0.000u      0.000s      0.006w      1 calls
+HF: Guess                   :      0.033u      0.000s      0.013w      1 calls
+HF: Form G                  :     20.700u      0.050s     12.532w     13 calls
+JK: D                       :      0.000u      0.000s      0.003w     13 calls
+JK: USO2AO                  :      0.000u      0.000s      0.001w     13 calls
+JK: JK                      :     20.683u      0.050s     12.522w     13 calls
+JK: J                       :      0.650u      0.000s      0.377w     13 calls
+JK: J1                      :      0.317u      0.000s      0.179w     26 calls
+JK: J2                      :      0.333u      0.000s      0.193w     26 calls
+JK: K                       :     19.950u      0.000s     12.079w     13 calls
+JK: K1                      :     17.450u      0.000s     10.558w     26 calls
+JK: K2                      :      2.500u      0.000s      1.520w     26 calls
+JK: AO2USO                  :      0.000u      0.000s      0.000w     13 calls
+HF: Form F                  :      0.000u      0.000s      0.002w     13 calls
+HF: DIIS                    :      0.100u      0.017s      0.176w     13 calls
+DIISManager::add_entry      :      0.000u      0.000s      0.071w     13 calls
+DIISManager::extrapolate    :      0.050u      0.017s      0.055w     12 calls
+bMatrix setup               :      0.050u      0.017s      0.015w     12 calls
+bMatrix pseudoinverse       :      0.000u      0.000s      0.025w     12 calls
+New vector                  :      0.000u      0.000s      0.015w     12 calls
+HF: Form C                  :      0.333u      0.000s      0.183w     13 calls
+HF: Form D                  :      0.000u      0.000s      0.004w     13 calls
+
+-----------------------------------------------------------
+JK: (A|mn)                  :      3.150u      0.017s      1.969w      1 calls
+JK: (A|Q)^-1/2              :      1.033u      0.017s      0.751w      1 calls
+JK: (Q|mn)                  :      1.367u      0.000s      0.828w      1 calls
+HF: Form H                  :      0.000u      0.000s      0.048w      1 calls
+HF: Form S/X                :      0.000u      0.000s      0.006w      1 calls
+HF: Guess                   :      0.033u      0.000s      0.013w      1 calls
+HF: Form G                  :     20.700u      0.050s     12.532w     13 calls
+| JK: D                     :      0.000u      0.000s      0.003w     13 calls
+| JK: USO2AO                :      0.000u      0.000s      0.001w     13 calls
+| JK: JK                    :     20.683u      0.050s     12.522w     13 calls
+| | JK: J                   :      0.650u      0.000s      0.377w     13 calls
+| | | JK: J1                :      0.317u      0.000s      0.179w     26 calls
+| | | JK: J2                :      0.333u      0.000s      0.193w     26 calls
+| | JK: K                   :     19.950u      0.000s     12.079w     13 calls
+| | | JK: K1                :     17.450u      0.000s     10.558w     26 calls
+| | | JK: K2                :      2.500u      0.000s      1.520w     26 calls
+| JK: AO2USO                :      0.000u      0.000s      0.000w     13 calls
+HF: Form F                  :      0.000u      0.000s      0.002w     13 calls
+HF: DIIS                    :      0.100u      0.017s      0.176w     13 calls
+| DIISManager::add_entry    :      0.000u      0.000s      0.071w     13 calls
+| DIISManager::extrapolate  :      0.050u      0.017s      0.055w     12 calls
+| | bMatrix setup           :      0.050u      0.017s      0.015w     12 calls
+| | bMatrix pseudoinverse   :      0.000u      0.000s      0.025w     12 calls
+| | New vector              :      0.000u      0.000s      0.015w     12 calls
+HF: Form C                  :      0.333u      0.000s      0.183w     13 calls
+HF: Form D                  :      0.000u      0.000s      0.004w     13 calls
+
+***********************************************************
+
+Host: noh-SATELLITE-PRO-C50-A-136
+
+Timers On : Sat Jan  5 17:18:06 2019
+Timers Off: Sat Jan  5 17:18:24 2019
+
+Wall Time:       17.79 seconds
+
+
+-----------------------------------------------------------
+
+***********************************************************
+
+Host: noh-SATELLITE-PRO-C50-A-136
+
+Timers On : Tue Jan  8 16:54:46 2019
+Timers Off: Tue Jan  8 18:12:10 2019
+
+Wall Time:     4644.59 seconds
+
+
+-----------------------------------------------------------
+
+***********************************************************

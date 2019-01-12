@@ -1,0 +1,3 @@
+from unittest import TestCase
+
+from SYN_CI.command_line import main
