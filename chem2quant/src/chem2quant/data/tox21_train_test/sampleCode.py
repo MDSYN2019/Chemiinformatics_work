@@ -8,7 +8,6 @@ from sklearn.ensemble import RandomForestClassifier
 
 
 # load data
-
 y_tr = pd.read_csv('tox21_labels_train.csv.gz', index_col=0, compression="gzip")
 y_te = pd.read_csv('tox21_labels_test.csv.gz', index_col=0, compression="gzip")
 x_tr_dense = pd.read_csv('tox21_dense_train.csv.gz', index_col=0, compression="gzip").values
