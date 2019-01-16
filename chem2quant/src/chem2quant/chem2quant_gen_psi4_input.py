@@ -4,7 +4,10 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem.Draw import IPythonConsole
 
+
 class chem2quant_psi4:    
+    """
+    """
     def mol2psi4(mol):
         mol = Chem.AddHs(mol)
         AllChem.EmbedMolecule(mol, useExpTorsionAnglePrefs=True,useBasicKnowledge=True)
@@ -14,6 +17,6 @@ class chem2quant_psi4:
         for i, atom in enumerate(atoms):
             pos = mol.GetConformer().GetAtomPosition(atom.GetIdx())
             string += "{} {} {} {}\n".format(atom.GetSymbol(), pos.x, pos.y, pos.z)
-            string += "units angstrom\n"
+        string += "units angstrom\n"
         return string, mol
 
