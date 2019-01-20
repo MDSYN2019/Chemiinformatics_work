@@ -144,15 +144,11 @@ and using them to calculate molecular similarity.
 The RDKit has a variety for generating molecular fingerprints and using them to calculate molecular similarity
 
 """
-
-
 fps = [FingerprintMols.FingerprintMol(x) for x in ms]
 for index in range(0, len(fps)):
     print(DataStructs.FingerprintSimilarity(fps[0],fps[index]))
     
 scaffold_ms = [MurckoScaffold.GetScaffoldForMol(x) for x in suppl_data if x is not None]
-#img=Draw.MolsToGridImage(scaffold_ms[:len(scaffold_ms)],molsPerRow=4,subImgSize=(200,200),legends=[x.GetProp("_Name") for x in scaffold_ms[:len(ms)]))
-#img.show()
 
 # Finding the common substructures between the molecules
 res=rdFMCS.FindMCS(ms)
