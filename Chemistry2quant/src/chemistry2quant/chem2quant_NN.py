@@ -1,3 +1,8 @@
+"""
+Tensorflow implementation of 
+
+"""
+
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -21,6 +26,11 @@ from sklearn.svm import SVC
 from xgboost import XGBClassifier
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
+
+# Getting smiles from pubchempy
+
+import pubchempy as pcp
+from pubchempy import Compound, get_compounds
 
 n_hidden1 = 300
 n_hidden2 = 300
@@ -52,29 +62,31 @@ def next_batch(num, data, labels):
     return np.asarray(data_shuffle), np.asarray(labels_shuffle)
     np_fps.append(arr)
     return np_fps
+def mol2arr(mol):
+  arr = np.zeros((1,))
+  fp = AllChem.GetMorganFingerprintAsBitVect(mol, 2)
+  DataStructs.ConvertToNumpyArray(fp, arr)
+  return arr
 
-train_mol = [ mol for mol in Chem.SDMolSupplier(os.path.join(datadir,'solubility.train.sdf')) if mol != None]
-test_mol = [ mol for mol in Chem.SDMolSupplier(os.path.join(datadir,'solubility.test.sdf')) if mol != None]
-
+train_mol = [mol for mol in Chem.SDMolSupplier(os.path.join(datadir,'solubility.train.sdf')) if mol != None]
+test_mol = [mol for mol in Chem.SDMolSupplier(os.path.join(datadir,'solubility.test.sdf')) if mol != None]
 cls_mol = list(set([mol.GetProp('SOL_classification') for mol in train_mol]))
 cls_dic = {}
 
 for i, cl in enumerate(cls_mol):
     cls_dic[cl] = i
-
 tf.reset_default_graph()
 # make train X, y and test X, y
-train_X = np.array(mols2feat(train_mol))
+train_X = np.array([mol2arr(mol) for mol in train_mol])
 train_y = np.array([cls_dic[mol.GetProp('SOL_classification')] for mol in train_mol])
 
-test_X = np.array(mols2feat(test_mol))
+test_X = np.array([mol2arr(mol) for mol in test_mol])
 test_y = np.array([cls_dic[mol.GetProp('SOL_classification')] for mol in test_mol])
 
 # Set up parameters for the neural network
 
 X = tf.placeholder(tf.float32, shape = (None, np.shape(train_X[0])[0]), name = "X")
 y = tf.placeholder(tf.int64, shape=(None), name="y")
-
 he_init = tf.contrib.layers.variance_scaling_initializer()
 
 with tf.name_scope("dnn"):
@@ -93,11 +105,10 @@ with tf.name_scope("eval"):
 with tf.name_scope("train"):
     optimizer = tf.train.GradientDescentOptimizer(learning_rate)
     training_op = optimizer.minimize(loss)
-
+    
 init = tf.global_variables_initializer()
 saver = tf.train.Saver()
-
-n_epochs = 5
+n_epochs = 20
 batch_size = 100
 
 with tf.Session() as sess:

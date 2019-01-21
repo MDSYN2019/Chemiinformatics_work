@@ -1,10 +1,7 @@
 from __future__ import print_function
 
 """
-
 Multiprocessing modules
-
-
 """
 from functools import reduce
 from multiprocessing import Pool, cpu_count
@@ -12,11 +9,10 @@ import sys, os, argparse
 import numpy as np 
 import pandas as pd 
 
-#RDKit modules 
+# RDKit Modules 
 
 import rdkit
 from rdkit import DataStructs
-
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem.Fingerprints import FingerprintMols # Fingerprinting
@@ -26,6 +22,7 @@ from rdkit.Chem import rdFMCS
 from rdkit.Chem.Fingerprints import FingerprintMols
 
 # Tensorflow
+
 import tensorflow as tf
 
 # Sklearn modules
@@ -33,6 +30,13 @@ import tensorflow as tf
 from sklearn.decomposition import PCA
 
 
+class multiprocessing_rdkit:
+    def __init__(self,num):
+        self.num = num
+    def multiprocess_new():
+        with Pool(processes = self.num) as pool:
+            pass
+        
 def sdfToMol(sdf):
     """
     Returns array of mols from sdf
@@ -89,6 +93,7 @@ Test running
 """
 directory = "/home/noh/Desktop/Current_work_in_progress/Chemiinformatics/RDKIT/rdkit/Docs/Book/data"
 sdf_file = 'bzr.sdf'
+
 process = rdkit_processdf(directory, sdf_file)
 ms_smiles = process.MoltoSmiles()
 
@@ -113,15 +118,7 @@ def neuron_layer(X, n_neurons, name, activation = None):
             return tf.nn.relu(z)
         else:
             return z
-
-class multiprocessing_rdkit:
-    def __init__(self,num):
-        self.num = num
-    def multiprocess_new():
-        with Pool(processes = self.num) as pool:
-            pass
         
-    
 for x in ms_smiles:
     ind_map = {}
     m = Chem.MolFromSmiles(x)
@@ -134,14 +131,13 @@ for x in ms_smiles:
 
     
 """
-Check the similarity between the molecules
-
+---------------------------------------------
 -- Fingerprinting and Molecular Similarity --
+---------------------------------------------
 
 The RDkit has a variety of built-in functionality for generating fingerprints
-and using them to calculate molecular similarity.
-
-The RDKit has a variety for generating molecular fingerprints and using them to calculate molecular similarity
+and using them to calculate molecular similarity. The RDKit has a variety for 
+generating molecular fingerprints and using them to calculate molecular similarity
 
 """
 fps = [FingerprintMols.FingerprintMol(x) for x in ms]
@@ -155,13 +151,6 @@ res=rdFMCS.FindMCS(ms)
 print(res.smartsString)
 
 feature_colummns = tf.contrib.learn_infer_real_valued_columns_from_input(X_train)
-
-#dnn_clf = tf.contrib.DNNClassifier(hidden_units = [300, 100], n_classes =)
-# I need to find out how many classes there are for my molecules 
-
-"""
-DNN part 
-"""
 
 with tf.name_scope("dnn"):
     hidden1 = neuron_layer(X, n_hidden1, "hidden1", activation = "relu")
