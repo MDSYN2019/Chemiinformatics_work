@@ -12,23 +12,6 @@ from tensorflow.contrib.layers import fully_connected
 
 # to make this notebook's output stable across runs
 
-def next_batch(num, data, labels):
-    '''
-    Return a total of `num` random samples and labels. 
-    '''
-    idx = np.arange(0 , len(data))
-    np.random.shuffle(idx)
-    idx = idx[:num]
-    data_shuffle = [data[ i] for i in idx]
-    labels_shuffle = [labels[ i] for i in idx]
-
-    return np.asarray(data_shuffle), np.asarray(labels_shuffle)
-
-def reset_graph(seed=42):
-    tf.reset_default_graph()
-    tf.set_random_seed(seed)
-    np.random.seed(seed)
-
 from rdkit import Chem
 from rdkit import rdBase
 from rdkit.Chem import AllChem
@@ -68,7 +51,28 @@ will be processed simultaneously by the neural network).
 #cur.execute("SELECT * FROM raw_data LIMIT 1000;")
 #cur.execute("SELECT DISTINCT smiles, emol_id from raw_data LIMIT 1000;")
 #database = cur.fetchall()  
-    
+
+
+def next_batch(num, data, labels):
+    '''
+    Return a total of `num` random samples and labels. 
+    '''
+    idx = np.arange(0 , len(data))
+    np.random.shuffle(idx)
+    idx = idx[:num]
+    data_shuffle = [data[ i] for i in idx]
+    labels_shuffle = [labels[ i] for i in idx]
+
+    return np.asarray(data_shuffle), np.asarray(labels_shuffle)
+
+def reset_graph(seed=42):
+    tf.reset_default_graph()
+    tf.set_random_seed(seed)
+    np.random.seed(seed)
+
+
+
+
 def vectorize(smiles):
         """
         Changing the smiles representation into a one-hot representation

@@ -14,7 +14,7 @@ except:
     print("Error: You need psycopg2 to run this code")
     
 class chemblConnect:
-    def __init__(self, database, user, host, password)
+    def __init__(self, database, user, host, password):
         self.database = str(database)
         self.user = str(user)
         self.host = str(host)
@@ -24,5 +24,14 @@ class chemblConnect:
     def issue_command(self):
         pass
 
+# Working with the emolecules module.
     
-        
+try:                                                                                                                                                 
+    conn = psycopg2.connect("dbname='emolecules' user='sang' host='localhost' password='Blad1bl@1234'") 
+except:                                                                                                                                              
+    print("Did not connect to database")                                                                                                             
+
+cur = conn.cursor()                                                                                                                                  
+cur.execute("SELECT * FROM raw_data LIMIT 1000;")                                                                                                    
+cur.execute("SELECT DISTINCT smiles, emol_id from raw_data LIMIT 1000;")                                                                             
+database = cur.fetchall()            
