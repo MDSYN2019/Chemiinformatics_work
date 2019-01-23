@@ -37,3 +37,15 @@ cur = conn.cursor()
 cur.execute("SELECT DISTINCT smiles, emol_id from raw_data LIMIT 100;")                                   
 
 database = cur.fetchall()            
+
+# Convert the database into a numpy (np.asarray)
+
+numpyDatabase = np.asarray(database)
+smiles = numpyDatabase[:,0]
+
+mols = [Chem.MolFromSmiles(x) for x in smiles if Chem.MolFromSmiles(x) != None]
+
+
+#TODO - how do we do unsupervised learning for this database?
+
+
