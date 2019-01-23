@@ -2,19 +2,22 @@ try:
     import psycopg2
 except:
     print("Error: You need psycopg2 to run this code")
-
-import numpy as np
-import pandas as pd
-from rdkit import Chem
-from rdkit.Chem import AllChem
-from rdkit.Chem import Draw
+try:
+    import numpy as np
+    import pandas as pd
+    from rdkit import Chem
+    from rdkit.Chem import AllChem
+    from rdkit.Chem import Draw
 #from rdkit.Chem import PandasTools
 #from rdkit.Chem.Draw import IPythonConsole
-
+except:
+    print("Could not find packages")
+    
 import matplotlib.pyplot as plt
 import seaborn as sns
 from mol2vec.features import mol2alt_sentence, MolSentence, DfVec, sentences2vec
 from mol2vec.helpers import depict_identifier, plot_2D_vectors, IdentifierTable, mol_to_svg
+from gensim.models import word2vec
 
 aa_smis = ['CC(N)C(=O)O', 'N=C(N)NCCCC(N)C(=O)O', 'NC(=O)CC(N)C(=O)O', 'NC(CC(=O)O)C(=O)O',
           'NC(CS)C(=O)O', 'NC(CCC(=O)O)C(=O)O', 'NC(=O)CCC(N)C(=O)O', 'NCC(=O)O',
@@ -44,7 +47,6 @@ numpyDatabase = np.asarray(database)
 smiles = numpyDatabase[:,0]
 
 mols = [Chem.MolFromSmiles(x) for x in smiles if Chem.MolFromSmiles(x) != None]
-
 
 #TODO - how do we do unsupervised learning for this database?
 
