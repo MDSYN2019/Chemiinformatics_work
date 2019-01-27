@@ -32,6 +32,9 @@ except:
     print("Did not connect to database")                                                                                                             
 
 cur = conn.cursor()                                                                                                                                  
-cur.execute("SELECT * FROM raw_data LIMIT 1000;")                                                                                                    
-cur.execute("SELECT DISTINCT smiles, emol_id from raw_data LIMIT 1000;")                                                                             
+cur.execute("SELECT * FROM raw_data LIMIT 100;")                                                                                                    
+cur.execute("SELECT DISTINCT smiles, emol_id from raw_data LIMIT 100;")                                                                             
 database = cur.fetchall()            
+
+
+
