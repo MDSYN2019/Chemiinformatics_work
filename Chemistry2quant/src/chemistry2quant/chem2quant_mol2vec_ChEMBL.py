@@ -53,12 +53,15 @@ try:
     chembl_24_conn = psycopg2.connect("dbname='chembl_24' user='sang' host='localhost' password='Blad1bl@1234'") 
 except:
     print("Could not connect to chembl_24")
-
+    
 chembl_cur = chembl_24_conn.cursor()
 chembl_cur.execute("SELECT * FROM compound_structures LIMIT 10")
-# What other commands do I want to run?
-chembl_database = chembl_cur.fetchall()
 
+# What other commands do I want to run?
+
+chembl_database = chembl_cur.fetchall()
+chembl_cur.execute("SELECT * FROM compound_properties where false")
+chembl_columns = chembl_cur.fetchall()
 
 
 #TODO - how do we do unsupervised learning for this database?
