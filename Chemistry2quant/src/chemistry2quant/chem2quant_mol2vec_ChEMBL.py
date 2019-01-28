@@ -1,4 +1,3 @@
-
 try:
     import psycopg2
 except:
@@ -29,16 +28,19 @@ aa_smis = ['CC(N)C(=O)O', 'N=C(N)NCCCC(N)C(=O)O', 'NC(=O)CC(N)C(=O)O', 'NC(CC(=O
 
 aa_codes = ['ALA', 'ARG', 'ASN', 'ASP', 'CYS', 'GLU', 'GLN', 'GLY', 'HIS', 'ILE', 
             'LEU', 'LYS', 'MET', 'PHE', 'PRO', 'SER', 'THR', 'TRP', 'TYR', 'VAL']
-    
+
+
+# All part of parsing the emolecules dataset
+
 try:                                                                                                                                                 
     conn = psycopg2.connect("dbname='emolecules' user='sang' host='localhost' password='Blad1bl@1234'") 
 except:                                                                                                                                              
     print("Did not connect to database")                                                                                                             
 
-cur = conn.cursor()
+emoleculesCur = conn.cursor()
 #cur.execute("SELECT * FROM raw_data LIMIT 1000;")
-cur.execute("SELECT DISTINCT smiles, emol_id from raw_data LIMIT 100;")                                   
-database = cur.fetchall()            
+emoleculesCur.execute("SELECT DISTINCT smiles, emol_id from raw_data LIMIT 100;")                                   
+database = emoleculesCur.fetchall()
 
 numpyDatabase = np.asarray(database) # convert to a numpy array to make use of numpy data parsing
 smiles = numpyDatabase[:,0] # Isolate the smiles 
@@ -49,20 +51,25 @@ mols = [Chem.MolFromSmiles(x) for x in smiles if Chem.MolFromSmiles(x) != None]
 # --------------------#
 # Load CHEMBL database
 # --------------------#
+
 try:
     chembl_24_conn = psycopg2.connect("dbname='chembl_24' user='sang' host='localhost' password='Blad1bl@1234'") 
 except:
-    print("Could not connect to chembl_24")
-    
+    print("Could not connect to chembl_24")    
+
 chembl_cur = chembl_24_conn.cursor()
 chembl_cur.execute("SELECT * FROM compound_structures LIMIT 10")
-
 # What other commands do I want to run?
-
 chembl_database = chembl_cur.fetchall()
-chembl_cur.execute("SELECT * FROM compound_properties where false")
-chembl_columns = chembl_cur.fetchall()
 
+try:
+    chembl_24_conn_2 = psycopg2.connect("dbname='chembl_24' user='sang' host='localhost' password='Blad1bl@1234'") 
+except:
+    print("Could not connect to chembl_24")
+    
+chembl_cur_2 = chembl_24_conn_2.cursor()
+chembl_cur_2.execute("SELECT * FROM compound_properties where false")
+chembl_columns = chembl_cur_2.fetchall()
 
 #TODO - how do we do unsupervised learning for this database?
 

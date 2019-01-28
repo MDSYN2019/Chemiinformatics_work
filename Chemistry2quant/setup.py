@@ -21,4 +21,10 @@ except VersionConflict:
 
 
 if __name__ == "__main__":
-    setup(use_pyscaffold=True)
+    setup(
+        name = "Chem",
+        version = "0.1",
+        packages = ["rdkit", "numpy", "scikit-learn", "tensorflow", "psi4"],
+        license='MIT',
+        long_description=open('README.txt').read(),
+    )
