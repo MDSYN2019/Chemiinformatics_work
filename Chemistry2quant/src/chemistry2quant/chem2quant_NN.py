@@ -1,6 +1,5 @@
 """
 Tensorflow implementation of 
-
 """
 
 import numpy as np
@@ -38,7 +37,7 @@ n_hidden3 = 300
 
 learning_rate = 0.01
 n_outputs = 3 # We have 3 output classes
-datadir = '/home/noh/Desktop/Current_work_in_progress/Chemiinformatics/RDKIT/rdkit/Docs/Book/data'
+datadir = '/home/noh/Desktop/CURRENT_WORK_IN_PROGRESS/Chemiinformatics/RDKIT/rdkit/Docs/Book/data'
 
 """
 Creating the neural network
