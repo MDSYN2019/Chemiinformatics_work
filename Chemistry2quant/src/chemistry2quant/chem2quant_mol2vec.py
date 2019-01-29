@@ -1,3 +1,9 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+from mol2vec.features import mol2alt_sentence, MolSentence, DfVec, sentences2vec
+from mol2vec.helpers import depict_identifier, plot_2D_vectors, IdentifierTable, mol_to_svg
+from gensim.models import word2vec
+
 try:
     import psycopg2
 except:
@@ -11,13 +17,8 @@ try:
 #from rdkit.Chem import PandasTools
 #from rdkit.Chem.Draw import IPythonConsole
 except:
-    print("Could not find packages")
-    
-import matplotlib.pyplot as plt
-import seaborn as sns
-from mol2vec.features import mol2alt_sentence, MolSentence, DfVec, sentences2vec
-from mol2vec.helpers import depict_identifier, plot_2D_vectors, IdentifierTable, mol_to_svg
-from gensim.models import word2vec
+    print("Could not find packages")    
+
 
 try:                                                                                                                                                 
     conn = psycopg2.connect("dbname='emolecules' user='sang' host='localhost' password='Blad1bl@1234'") 
