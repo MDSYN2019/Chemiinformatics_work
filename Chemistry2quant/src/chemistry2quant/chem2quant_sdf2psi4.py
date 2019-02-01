@@ -30,9 +30,7 @@ def get_xyz(infile):
     for counter in range(num_atoms):
         pos=mol.GetConformer().GetAtomPosition(counter)
         xyz_string = xyz_string + ("%s %12.6f %12.6f %12.6f\n" % (mol.GetAtomWithIdx(counter).GetSymbol(), pos.x, pos.y, pos.z) )
-
     return xyz_string
-
 
 def replace_coords_in_psi4_template(template_file, xyz_string, file_to_save, email):
     data = open(template_file, 'r').read()
@@ -40,7 +38,6 @@ def replace_coords_in_psi4_template(template_file, xyz_string, file_to_save, ema
     new_data = template.substitute(COORDINATES=xyz_string, XYZ_FILE_TO_SAVE=file_to_save+".xyz", SD_FILE_TO_SAVE=file_to_save+".sdf", EMAIL=email)
     #print (new_data)
     return new_data
-
         
 #check to see if there are invalid properties
 def main(argv=None):
