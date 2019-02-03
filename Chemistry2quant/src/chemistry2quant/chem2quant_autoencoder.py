@@ -70,7 +70,7 @@ def vectorize(smiles):
         #Return two, one for input and the 2other for output
         return one_hot[:,0:-1,:], one_hot[:,1:,:]
 
-file = "/home/noh/Desktop/QM_MM/chem2quant/chem2quant/smifiles/gdb11_size08.smi"
+file = "data/gdb11_size11.smi"
 data = pd.read_csv(file, delimiter = "\t", names = ["smiles","No","Int"])
 smiles_train, smiles_test = train_test_split(data["smiles"], random_state=42)
 
