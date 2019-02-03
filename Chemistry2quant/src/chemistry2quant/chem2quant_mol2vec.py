@@ -14,11 +14,8 @@ try:
     from rdkit import Chem
     from rdkit.Chem import AllChem
     from rdkit.Chem import Draw
-#from rdkit.Chem import PandasTools
-#from rdkit.Chem.Draw import IPythonConsole
 except:
     print("Could not find packages")    
-
 
 try:                                                                                                                                                 
     conn = psycopg2.connect("dbname='emolecules' user='sang' host='localhost' password='Blad1bl@1234'") 

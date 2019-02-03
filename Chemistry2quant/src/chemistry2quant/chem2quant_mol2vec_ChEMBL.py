@@ -15,40 +15,43 @@ try:
     from gensim.models import word2vec
 except:
     print("Could not find packages")
-    
-aa_smis = ['CC(N)C(=O)O', 'N=C(N)NCCCC(N)C(=O)O', 'NC(=O)CC(N)C(=O)O', 'NC(CC(=O)O)C(=O)O',
-          'NC(CS)C(=O)O', 'NC(CCC(=O)O)C(=O)O', 'NC(=O)CCC(N)C(=O)O', 'NCC(=O)O',
-          'NC(Cc1cnc[nH]1)C(=O)O', 'CCC(C)C(N)C(=O)O', 'CC(C)CC(N)C(=O)O', 'NCCCCC(N)C(=O)O',
-          'CSCCC(N)C(=O)O', 'NC(Cc1ccccc1)C(=O)O', 'O=C(O)C1CCCN1', 'NC(CO)C(=O)O',
-          'CC(O)C(N)C(=O)O', 'NC(Cc1c[nH]c2ccccc12)C(=O)O', 'NC(Cc1ccc(O)cc1)C(=O)O',
-          'CC(C)C(N)C(=O)O']
-
-aa_codes = ['ALA', 'ARG', 'ASN', 'ASP', 'CYS', 'GLU', 'GLN', 'GLY', 'HIS', 'ILE', 
-            'LEU', 'LYS', 'MET', 'PHE', 'PRO', 'SER', 'THR', 'TRP', 'TYR', 'VAL']
 
 # All part of parsing the emolecules dataset
-def emolecule_command(sql_command)
+def emolecule_command(sql_command, user, password):
+    sql_string = "dbname='emolecules' user={} host='localhost' password={}".format(user, password)
     try:                                                                                                                                            
-        conn = psycopg2.connect("dbname='emolecules' user='sang' host='localhost' password='Blad1bl@1234'") 
+        conn = psycopg2.connect(sql_string) 
     except:                                                                                                                                         
-        print("Did not connect to database")                                                                                                             
-    emoleculesCur = conn.cursor()
-    emoleculesCur.execute(str(sql_command))                                   
-    database = emoleculesCur.fetchall()
+        print("Did not connect to database")
+    emolecules_cur = conn.cursor()
+    emolecules_cur.execute(str(sql_command))                                   
+    database = emolecules_cur.fetchall()
     return database
 
-def chembl24_command(sql_command)
+def chembl24_command(sql_command, user, password):
+    sql_string = "dbname='chembl_24' user={} host='localhost' password={}".format(user, password)
     try:
-        chembl_24_conn = psycopg2.connect("dbname='chembl_24' user='sang' host='localhost' password='Blad1bl@1234'") 
+        conn = psycopg2.connect(sql_string) 
     except:
         print("Could not connect to chembl_24")    
-
-    chembl_cur = chembl_24_conn.cursor()
+    chembl_cur = conn.cursor()
     chembl_cur.execute(str(sql_command))
     chembl_database = chembl_cur.fetchall()
     return chembl_database
 
-numpyDatabase = np.asarray(database) # convert to a numpy array to make use of numpy data parsing
-smiles = numpyDatabase[:,0] # Isolate the smiles 
-mols = [Chem.MolFromSmiles(x) for x in smiles if Chem.MolFromSmiles(x) != None]
 
+#numpyDatabase = np.asarray(database) # convert to a numpy array to make use of numpy data parsing
+#smiles = numpyDatabase[:,0] # Isolate the smiles 
+#mols = [Chem.MolFromSmiles(x) for x in smiles if Chem.MolFromSmiles(x) != None]
+
+
+# Get all table names for the work 
+table_names = chembl24_command("SELECT table_name FROM information_schema.tables WHERE table_schema='public'", "sang", "silver!!")
+table_names = [title[0] for title in table_names]
+
+data_list = [] 
+for title in table_names:
+    sql_command = "SELECT * FROM {} LIMIT 100;".format(str(title))
+    data_list.append(chembl24_command(sql_command, "sang", "silver!!"))
+    
+                     
