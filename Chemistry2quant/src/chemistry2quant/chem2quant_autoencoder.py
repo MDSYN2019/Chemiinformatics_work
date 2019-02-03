@@ -26,11 +26,7 @@ from sklearn.svm import SVC
 from xgboost import XGBClassifier
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.cross_validation import train_test_split
-
-# Recurrent neural network modules
-
-import psycopg2 # postgres module
+from sklearn.model_selection import train_test_split
 
 """
 
@@ -41,17 +37,6 @@ one training one training batch at a time (note that all the instances in a trai
 will be processed simultaneously by the neural network).
  
 """
-
-#try:
-#    conn = psycopg2.connect("dbname='emolecules' user='sang' host='localhost' password='silver!!'")
-#except:
-#    print("Did not connect to database")
-
-#cur = conn.cursor()
-#cur.execute("SELECT * FROM raw_data LIMIT 1000;")
-#cur.execute("SELECT DISTINCT smiles, emol_id from raw_data LIMIT 1000;")
-#database = cur.fetchall()  
-
 
 def next_batch(num, data, labels):
     '''
