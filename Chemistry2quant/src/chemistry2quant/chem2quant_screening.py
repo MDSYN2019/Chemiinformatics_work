@@ -32,11 +32,9 @@ from rdkit.Chem.AtomPairs import Pairs
 
 class two_step_screen():
     """
-    Initial screening of a database with a substructure 
-
-    The first screen removes 99% of all the options in the total database - for example, the emoleucles or the chembl database
-    
-    The second screen studies the work using a number of algirithms - at first, we use the standard rdkit substructure search 
+    Initial screening of a database with a substructure - The first screen removes 99% of all the options in the total database. 
+    For example, the emoleucles or the chembl database. The second screen studies the work using a number of algirithms - at first, 
+    we use the standard rdkit substructure search 
     """
     def __init__(self, smilesList, molecule):
         self.smilesList = smilesList
