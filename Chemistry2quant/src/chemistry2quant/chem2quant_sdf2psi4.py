@@ -3,6 +3,8 @@ from __future__ import print_function
 from __future__ import division
 
 __author__ = 'JW Feng'
+__new_author__ = 'Sang Young Noh'
+
 
 import sys
 import os
