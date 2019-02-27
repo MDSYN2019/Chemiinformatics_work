@@ -36,14 +36,6 @@ import tensorflow as tf
 
 from sklearn.decomposition import PCA
 
-
-class multiprocessing_rdkit:
-    def __init__(self,num):
-        self.num = num
-    def multiprocess_new():
-        with Pool(processes = self.num) as pool:
-            pass
-
 def neuron_layer(X, n_neurons, name, activation = None):
     with tf.name_scope(name):
         n_inputs = int(X.get_shape()[1])
@@ -56,9 +48,7 @@ def neuron_layer(X, n_neurons, name, activation = None):
             return tf.nn.relu(z)
         else:
             return z
-            
-
-        
+                    
 def sdfToMol(sdf):
     """
     Returns array of mols from sdf
