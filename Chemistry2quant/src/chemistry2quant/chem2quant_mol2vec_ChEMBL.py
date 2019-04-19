@@ -3,7 +3,6 @@
 Module for downloading ChemBL data 
 
 """
-
 try:
     import psycopg2
 except:
