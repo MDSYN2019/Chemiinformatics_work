@@ -1,11 +1,13 @@
-
 import os
 import tarfile
-from six.moves import urllib
 import numpy as np 
 import imp
 import pandas as pd
+
 from collections import namedtuple
+from sklearn.model_selection import train_test_split
+from six.moves import urllib
+
 
 import hashlib
 
