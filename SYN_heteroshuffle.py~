@@ -1,8 +1,0 @@
-from rdkit import Chem
-from rdkit.Chem import AllChem
-from rdkit.Chem.Draw import IPythonConsole
-from rdkit.Chem import Draw
-from rdkit.Chem import rdDepictor
-from rdkit.Chem import rdFMCS
-from rdkit.Chem import TemplateAlign
-
