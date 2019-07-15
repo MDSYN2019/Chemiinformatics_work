@@ -1,13 +1,23 @@
-"""
 
+
+
+"""
 Python module which returns the chembl database as a pandas table, depending on the 
 specifications you would like in the end. 
 
-Make sure that the presmissions settings on the table has been granted to the USER.
-
-Usually, this would be 
-
+Make sure that the permissions settings on the table has been granted to the USER.
 """
+try:
+	from __future__ import division
+	from __future__ import print_function
+	from __future__ import unicode_literals
+
+import numpy as np
+import tensorflow as tf
+import deepchem as dc
+from deepchem.models.tensorgraph.models.graph_models import GraphConvModel
+
+
 try:
     import psycopg2
 except:
@@ -37,4 +47,6 @@ cur.execute("SELECT DISTINCT smiles, emol_id from raw_data LIMIT 100;")
 database = cur.fetchall()            
 
 
-
+"""
+Step 1 -> Understand and modify the graph convolution for Tox21 
+"""

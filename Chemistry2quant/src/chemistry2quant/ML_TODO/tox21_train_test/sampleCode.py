@@ -5,16 +5,15 @@ import pandas as pd
 from scipy import io
 from sklearn.metrics import roc_auc_score
 from sklearn.ensemble import RandomForestClassifier
-
 import tensorflow as tf
 
 # load data
-y_tr = pd.read_csv('tox21_labels_train.csv.gz', index_col=0, compression="gzip")
-y_te = pd.read_csv('tox21_labels_test.csv.gz', index_col=0, compression="gzip")
-x_tr_dense = pd.read_csv('tox21_dense_train.csv.gz', index_col=0, compression="gzip").values
-x_te_dense = pd.read_csv('tox21_dense_test.csv.gz', index_col=0, compression="gzip").values
-x_tr_sparse = io.mmread('tox21_sparse_train.mtx.gz').tocsc()
-x_te_sparse = io.mmread('tox21_sparse_test.mtx.gz').tocsc()
+y_tr = pd.read_csv('tox21_labels_train.csv', index_col=0)
+y_te = pd.read_csv('tox21_labels_test.csv', index_col=0)
+x_tr_dense = pd.read_csv('tox21_dense_train.csv', index_col=0).values
+x_te_dense = pd.read_csv('tox21_dense_test.csv', index_col=0).values
+x_tr_sparse = io.mmread('tox21_sparse_train.mtx').tocsc()
+x_te_sparse = io.mmread('tox21_sparse_test.mtx').tocsc()
 
 # filter out very sparse features
 sparse_col_idx = ((x_tr_sparse > 0).mean(0) > 0.05).A.ravel()
