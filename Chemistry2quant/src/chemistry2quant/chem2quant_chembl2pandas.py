@@ -7,15 +7,21 @@ specifications you would like in the end.
 
 Make sure that the permissions settings on the table has been granted to the USER.
 """
-try:
-	from __future__ import division
-	from __future__ import print_function
-	from __future__ import unicode_literals
 
+#try:
+#	from __future__ import division
+#	from __future__ import print_function
+#	from __future__ import unicode_literals
+#except importError
+
+import sys
+import os 
 import numpy as np
-import tensorflow as tf
-import deepchem as dc
-from deepchem.models.tensorgraph.models.graph_models import GraphConvModel
+import pandas as pd 
+#import tensorflow as tf
+
+#import deepchem as dc
+#from deepchem.models.tensorgraph.models.graph_models import GraphConvModel
 
 
 try:
@@ -37,7 +43,7 @@ class chemblConnect:
 # Working with the emolecules module.
     
 try:                                                                                                                                                 
-    conn = psycopg2.connect("dbname='emolecules' user='sang' host='localhost' password='Blad1bl@1234'") 
+    conn = psycopg2.connect(dbname='emolecules', user='sang', host='localhost', password='Blad1bl@1234', port=5432) 
 except:                                                                                                                                              
     print("Did not connect to database")                                                                                                             
 

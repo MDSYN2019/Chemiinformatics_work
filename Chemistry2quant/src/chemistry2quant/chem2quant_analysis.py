@@ -44,6 +44,7 @@ import tensorflow as tf
 
 from sklearn.decomposition import PCA
 
+## A neural network layer for use later 
 def neuron_layer(X, n_neurons, name, activation = None):
     with tf.name_scope(name):
         n_inputs = int(X.get_shape()[1])
@@ -74,18 +75,25 @@ def substructure_search(substruct, struct_array):
 #/home/noh/Desktop/Current_work_in_progress/Chemiinformatics/RDKIT/rdkit/Docs/Book/data
 
 class rdkitProcessDf:
-    def __init__(self,directory,sdf_file_name):
+	"""
+	"""
+	## The constructor for the class
+    def __init__(self, directory, sdf_file_name):
         self.rdkit_directory = str(directory)
         self.lig_data = self.rdkit_directory + "/" + sdf_file_name
         self.dataMol = sdfToMol(self.lig_data)
-    def returnMol(self):
+	## Return the data of the molecule in the Mol format (more details and links here: PLACEHOLDEr)
+	def returnMol(self):
         return self.dataMol
+	## Convert Mol to smiles
     def MoltoSmiles(self):
         self.ms_smiles = [Chem.MolToSmiles(x) for x in self.dataMol]
         return self.ms_smiles
+	## Simple fingerprint list
     def MACCSfingerprintList(self):
         self.MACCSlist = [MACCSkeys.GenMACCSKeys(x) for x in self.dataMol]
         return MACCSlist
+	## Torsional fingerprint list
     def torsionalfingerprintList(self):
         self.Pairslist = [Pairs.GetAtomPairFingerprint(x) for x in self.dataMol]
         return self.Pairslist
