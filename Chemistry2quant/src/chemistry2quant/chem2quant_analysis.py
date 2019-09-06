@@ -5,19 +5,19 @@ More details here
 
 """
 
-
-from __future__ import print_function
-
 """
 Multiprocessing modules
 """
+
+## Misc modules and numpy/pandas
+
 from functools import reduce
 from multiprocessing import Pool, cpu_count
 import sys, os, argparse
 import numpy as np 
 import pandas as pd 
 
-# RDKit Modules
+## RDKit Modules -- Chemiinformatics 
 
 import rdkit
 from rdkit import DataStructs
@@ -30,17 +30,17 @@ from rdkit.Chem import rdFMCS
 from rdkit.Chem import MACCSkeys
 from rdkit.Chem.AtomPairs import Pairs
 
-# Mol2Vec modules
+## Mol2Vec modules
 
 from mol2vec.features import mol2alt_sentence, MolSentence, DfVec, sentences2vec
 from mol2vec.helpers import depict_identifier, plot_2D_vectors, IdentifierTable, mol_to_svg
 from gensim.models import word2vec
 
-# Tensorflow
+## Tensorflow
 
 import tensorflow as tf
 
-# Sklearn modules
+## Sklearn modules
 
 from sklearn.decomposition import PCA
 
@@ -76,6 +76,7 @@ def substructure_search(substruct, struct_array):
 
 class rdkitProcessDf:
 	"""
+	What does this do?
 	"""
 	## The constructor for the class
     def __init__(self, directory, sdf_file_name):

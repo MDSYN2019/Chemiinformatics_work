@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mols2feat',['mols2feat',['../classchemistry2quant_1_1chem2quant__lipophilicity_1_1rdkit__lipophilicity.html#a0529318f2021adfc7004f786ac98848d',1,'chemistry2quant::chem2quant_lipophilicity::rdkit_lipophilicity']]]
+  ['first_5fscreen',['first_screen',['../classchemistry2quant_1_1chem2quant__screening_1_1two__step__screen.html#a7055bbeb08bf745c49037a705b01ed71',1,'chemistry2quant::chem2quant_screening::two_step_screen']]]
 ];

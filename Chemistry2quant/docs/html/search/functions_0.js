@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['first_5fscreen',['first_screen',['../classchemistry2quant_1_1chem2quant__screening_1_1two__step__screen.html#a7055bbeb08bf745c49037a705b01ed71',1,'chemistry2quant::chem2quant_screening::two_step_screen']]]
+  ['_5f_5finit_5f_5f',['__init__',['../classchemistry2quant_1_1chem2quant__analysis_1_1rdkitProcessDf.html#a3f2db3306c1c8c1883cf3af811c539bf',1,'chemistry2quant::chem2quant_analysis::rdkitProcessDf']]]
 ];

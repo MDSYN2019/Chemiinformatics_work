@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['rdkit_5flipophilicity',['rdkit_lipophilicity',['../classchemistry2quant_1_1chem2quant__lipophilicity_1_1rdkit__lipophilicity.html',1,'chemistry2quant::chem2quant_lipophilicity']]],
-  ['rdkitprocessdf',['rdkitProcessDf',['../classchemistry2quant_1_1chem2quant__analysis_1_1rdkitProcessDf.html',1,'chemistry2quant::chem2quant_analysis']]],
-  ['rdkitpsi4datagenerator',['rdkitPsi4DataGenerator',['../classchemistry2quant_1_1chem2quant__analysis_1_1rdkitPsi4DataGenerator.html',1,'chemistry2quant::chem2quant_analysis']]]
+  ['process_5fdata_5fcolumn',['process_data_column',['../classchemistry2quant_1_1chem2quant__lipophilicity_1_1rdkit__lipophilicity.html#a46c111c55d4619ab2865950b46d6c361',1,'chemistry2quant::chem2quant_lipophilicity::rdkit_lipophilicity']]]
 ];

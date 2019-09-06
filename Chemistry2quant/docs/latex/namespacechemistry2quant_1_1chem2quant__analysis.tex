@@ -11,8 +11,8 @@ class \hyperlink{classchemistry2quant_1_1chem2quant__analysis_1_1rdkitPsi4DataGe
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{namespacechemistry2quant_1_1chem2quant__analysis_af45b049d6a04c87f9f473f3356dda58c}\label{namespacechemistry2quant_1_1chem2quant__analysis_af45b049d6a04c87f9f473f3356dda58c}} 
-def {\bfseries neuron\+\_\+layer} (X, n\+\_\+neurons, name, activation=None)
-\item 
+def \hyperlink{namespacechemistry2quant_1_1chem2quant__analysis_af45b049d6a04c87f9f473f3356dda58c}{neuron\+\_\+layer} (X, n\+\_\+neurons, name, activation=None)
+\begin{DoxyCompactList}\small\item\em A neural network layer for use later. \end{DoxyCompactList}\item 
 def \hyperlink{namespacechemistry2quant_1_1chem2quant__analysis_a5c890927e4c20980765efaff0db0c04a}{sdf\+To\+Mol} (sdf)
 \item 
 \mbox{\Hypertarget{namespacechemistry2quant_1_1chem2quant__analysis_a2707785b7dfd340c999a995b73c2b198}\label{namespacechemistry2quant_1_1chem2quant__analysis_a2707785b7dfd340c999a995b73c2b198}} 
@@ -52,13 +52,13 @@ int {\bfseries n\+\_\+hidden3} = 100
 {\bfseries feature\+\_\+colummns} = tf.\+contrib.\+learn\+\_\+infer\+\_\+real\+\_\+valued\+\_\+columns\+\_\+from\+\_\+input(X\+\_\+train)
 \item 
 \mbox{\Hypertarget{namespacechemistry2quant_1_1chem2quant__analysis_a96f8355fe78c70265e0b51b533ca9567}\label{namespacechemistry2quant_1_1chem2quant__analysis_a96f8355fe78c70265e0b51b533ca9567}} 
-def {\bfseries hidden1} = neuron\+\_\+layer(X, n\+\_\+hidden1, \char`\"{}hidden1\char`\"{}, activation = \char`\"{}relu\char`\"{})
+def {\bfseries hidden1} = \hyperlink{namespacechemistry2quant_1_1chem2quant__analysis_af45b049d6a04c87f9f473f3356dda58c}{neuron\+\_\+layer}(X, n\+\_\+hidden1, \char`\"{}hidden1\char`\"{}, activation = \char`\"{}relu\char`\"{})
 \item 
 \mbox{\Hypertarget{namespacechemistry2quant_1_1chem2quant__analysis_a36b629c603687948067d5de7b94d4d82}\label{namespacechemistry2quant_1_1chem2quant__analysis_a36b629c603687948067d5de7b94d4d82}} 
-def {\bfseries hidden2} = neuron\+\_\+layer(hidden1, n\+\_\+hidden2, \char`\"{}hidden2\char`\"{}, activation = \char`\"{}relu\char`\"{})
+def {\bfseries hidden2} = \hyperlink{namespacechemistry2quant_1_1chem2quant__analysis_af45b049d6a04c87f9f473f3356dda58c}{neuron\+\_\+layer}(hidden1, n\+\_\+hidden2, \char`\"{}hidden2\char`\"{}, activation = \char`\"{}relu\char`\"{})
 \item 
 \mbox{\Hypertarget{namespacechemistry2quant_1_1chem2quant__analysis_a643325fa63e35ef454fd7104ed405b9a}\label{namespacechemistry2quant_1_1chem2quant__analysis_a643325fa63e35ef454fd7104ed405b9a}} 
-def {\bfseries logits} = neuron\+\_\+layer(hidden2, n\+\_\+outputs, \char`\"{}outputs\char`\"{})
+def {\bfseries logits} = \hyperlink{namespacechemistry2quant_1_1chem2quant__analysis_af45b049d6a04c87f9f473f3356dda58c}{neuron\+\_\+layer}(hidden2, n\+\_\+outputs, \char`\"{}outputs\char`\"{})
 \item 
 \mbox{\Hypertarget{namespacechemistry2quant_1_1chem2quant__analysis_adf0eae946dfb0878ef93535ee235a05e}\label{namespacechemistry2quant_1_1chem2quant__analysis_adf0eae946dfb0878ef93535ee235a05e}} 
 {\bfseries init} = tf.\+global\+\_\+variables\+\_\+initalizer()

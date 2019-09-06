@@ -28,7 +28,7 @@
     \subitem {mols2feat}, \hyperpage{10}
     \subitem {process\+\_\+data\+\_\+column}, \hyperpage{11}
   \item {chemistry2quant\+::chem2quant\+\_\+screening\+::two\+\_\+step\+\_\+screen}
-    \subitem {first\+\_\+screen}, \hyperpage{12}
+    \subitem {first\+\_\+screen}, \hyperpage{13}
     \subitem {second\+\_\+screen}, \hyperpage{13}
     \subitem {smile\+Mol}, \hyperpage{13}
 
@@ -36,7 +36,7 @@
 
   \item {first\+\_\+screen}
     \subitem {chemistry2quant\+::chem2quant\+\_\+screening\+::two\+\_\+step\+\_\+screen}, 
-		\hyperpage{12}
+		\hyperpage{13}
 
   \indexspace
 

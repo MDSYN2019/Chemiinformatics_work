@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "cfmnprst",
+  0: "_cfmnprst",
   1: "crt",
   2: "c",
-  3: "fmnps",
+  3: "_fmnprst",
   4: "s"
 };
 

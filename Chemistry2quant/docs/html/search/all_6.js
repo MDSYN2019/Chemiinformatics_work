@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['sdftomol',['sdfToMol',['../namespacechemistry2quant_1_1chem2quant__analysis.html#a5c890927e4c20980765efaff0db0c04a',1,'chemistry2quant::chem2quant_analysis']]],
-  ['second_5fscreen',['second_screen',['../classchemistry2quant_1_1chem2quant__screening_1_1two__step__screen.html#a06a642274b788b8c411020438f82d04f',1,'chemistry2quant::chem2quant_screening::two_step_screen']]],
-  ['smilemol',['smileMol',['../classchemistry2quant_1_1chem2quant__screening_1_1two__step__screen.html#a6fde4c5a06a5d83ff1bad48186131072',1,'chemistry2quant::chem2quant_screening::two_step_screen']]]
+  ['rdkit_5flipophilicity',['rdkit_lipophilicity',['../classchemistry2quant_1_1chem2quant__lipophilicity_1_1rdkit__lipophilicity.html',1,'chemistry2quant::chem2quant_lipophilicity']]],
+  ['rdkitprocessdf',['rdkitProcessDf',['../classchemistry2quant_1_1chem2quant__analysis_1_1rdkitProcessDf.html',1,'chemistry2quant::chem2quant_analysis']]],
+  ['rdkitpsi4datagenerator',['rdkitPsi4DataGenerator',['../classchemistry2quant_1_1chem2quant__analysis_1_1rdkitPsi4DataGenerator.html',1,'chemistry2quant::chem2quant_analysis']]],
+  ['returnmol',['returnMol',['../classchemistry2quant_1_1chem2quant__analysis_1_1rdkitProcessDf.html#a63adf77432f5f20cb2e80f8860f67c79',1,'chemistry2quant::chem2quant_analysis::rdkitProcessDf']]]
 ];

@@ -81,7 +81,8 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af45b049d6a04c87f9f473f3356dda58c"><td class="memItemLeft" align="right" valign="top"><a id="af45b049d6a04c87f9f473f3356dda58c"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>neuron_layer</b> (X, n_neurons, name, activation=None)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechemistry2quant_1_1chem2quant__analysis.html#af45b049d6a04c87f9f473f3356dda58c">neuron_layer</a> (X, n_neurons, name, activation=None)</td></tr>
+<tr class="memdesc:af45b049d6a04c87f9f473f3356dda58c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A neural network layer for use later. <br /></td></tr>
 <tr class="separator:af45b049d6a04c87f9f473f3356dda58c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c890927e4c20980765efaff0db0c04a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechemistry2quant_1_1chem2quant__analysis.html#a5c890927e4c20980765efaff0db0c04a">sdfToMol</a> (sdf)</td></tr>
 <tr class="separator:a5c890927e4c20980765efaff0db0c04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,13 +123,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>n_hidden3</b> = 100</t
 &#160;</td><td class="memItemRight" valign="bottom"><b>feature_colummns</b> = tf.contrib.learn_infer_real_valued_columns_from_input(X_train)</td></tr>
 <tr class="separator:a5aea0d4e1c6fbf74d540809ab32cb821"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96f8355fe78c70265e0b51b533ca9567"><td class="memItemLeft" align="right" valign="top"><a id="a96f8355fe78c70265e0b51b533ca9567"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>hidden1</b> = neuron_layer(X, n_hidden1, &quot;hidden1&quot;, activation = &quot;relu&quot;)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>hidden1</b> = <a class="el" href="namespacechemistry2quant_1_1chem2quant__analysis.html#af45b049d6a04c87f9f473f3356dda58c">neuron_layer</a>(X, n_hidden1, &quot;hidden1&quot;, activation = &quot;relu&quot;)</td></tr>
 <tr class="separator:a96f8355fe78c70265e0b51b533ca9567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36b629c603687948067d5de7b94d4d82"><td class="memItemLeft" align="right" valign="top"><a id="a36b629c603687948067d5de7b94d4d82"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>hidden2</b> = neuron_layer(hidden1, n_hidden2, &quot;hidden2&quot;, activation = &quot;relu&quot;)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>hidden2</b> = <a class="el" href="namespacechemistry2quant_1_1chem2quant__analysis.html#af45b049d6a04c87f9f473f3356dda58c">neuron_layer</a>(hidden1, n_hidden2, &quot;hidden2&quot;, activation = &quot;relu&quot;)</td></tr>
 <tr class="separator:a36b629c603687948067d5de7b94d4d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a643325fa63e35ef454fd7104ed405b9a"><td class="memItemLeft" align="right" valign="top"><a id="a643325fa63e35ef454fd7104ed405b9a"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>logits</b> = neuron_layer(hidden2, n_outputs, &quot;outputs&quot;)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>logits</b> = <a class="el" href="namespacechemistry2quant_1_1chem2quant__analysis.html#af45b049d6a04c87f9f473f3356dda58c">neuron_layer</a>(hidden2, n_outputs, &quot;outputs&quot;)</td></tr>
 <tr class="separator:a643325fa63e35ef454fd7104ed405b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf0eae946dfb0878ef93535ee235a05e"><td class="memItemLeft" align="right" valign="top"><a id="adf0eae946dfb0878ef93535ee235a05e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>init</b> = tf.global_variables_initalizer()</td></tr>
