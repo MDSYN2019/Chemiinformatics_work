@@ -105,8 +105,15 @@ class rdkitPsi4DataGenerator:
     Based on the code seen in "https://iwatobipen.wordpress.com/2018/08/24/calculate-homo-and-lumo-with-psi4-rdkit-psi4/"
     """
     def __init__(molfile):
-        self.molfile = molfile
+		"""
+		What does this function do?
+		"""
+        
+		self.molfile = molfile
     def molToPsi4(self):
+		"""
+		What does this function do?
+		"""
         mol = self.molfile
         mol = Chem.AddHs(mol)
         AllChem.EmbedMolecule(mol, useExpTorsionAnglePrefs=True,useBasicKnowledge=True)
@@ -119,9 +126,17 @@ class rdkitPsi4DataGenerator:
         string += "units angstrom\n"
         return string, mol
     def forEachSimilarity(ref, array):
-        SimSimilarityMaps.GetAPFingerprint(mol, fpType = 'normal')
+		"""
+		What does this function do?
+		"""
+        
+		SimSimilarityMaps.GetAPFingerprint(mol, fpType = 'normal')
     def storeMolecule():
-        pass
+		"""
+		What does this function do?
+		"""
+        
+		pass
 
 """
 Test running
