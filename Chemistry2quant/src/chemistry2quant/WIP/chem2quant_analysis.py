@@ -6,6 +6,8 @@ More details here
 """
 
 smifile = "/home/oohnohnoh1/Desktop/GIT/Chemiinformatics_work/Chemistry2quant/src/chemistry2quant/smifiles/gdb11_size08.smi"
+directory = "/home/oohnohnoh1/Desktop/GIT/Chemiinformatics_work/Chemistry2quant/src/chemistry2quant/WIP"
+sdf_file = 'bzr.sdf'
 
 
 ## Misc modules and numpy/pandas
@@ -98,14 +100,21 @@ class rdkitProcessDf:
 		self.Pairslist = [Pairs.GetAtomPairFingerprint(x) for x in self.dataMol]
 		return self.Pairslist
 
-class rdkitPsi4DataGenerator:           
+class rdkitPsi4DataGenerator(rdkitProcessDf):           
 	"""
+
+	Inherits from 
+
 	Here, we want to translate the smilestoMol file into a psi4 file and run DFT calculations for each.
 	Based on the code seen in "https://iwatobipen.wordpress.com/2018/08/24/calculate-homo-and-lumo-with-psi4-rdkit-psi4/"
 	"""
-	def __init__(molfile):
+	def __init__(molfile, directory = "/home/oohnohnoh1/Desktop/GIT/Chemiinformatics_work/Chemistry2quant/src/chemistry2quant/WIP", sdf_file = 'bzr.sdf'):
 		"""
-		What does this function do?
+		What does this class do?
+		"""
+		super().__init__(directory, sdf_file) 
+		"""
+		Inheriting from the rdkitProcessDf and initializng for the methods within there
 		"""
 		self.molfile = molfile
 	def molToPsi4(self):
@@ -137,8 +146,6 @@ class rdkitPsi4DataGenerator:
 """
 Test running
 """
-directory = "/home/oohnohnoh1/Desktop/GIT/Chemiinformatics_work/Chemistry2quant/src/chemistry2quant/WIP"
-sdf_file = 'bzr.sdf'
 
 process = rdkitProcessDf(directory, sdf_file) # Initialization of the class that reads the sdf file
 molList = process.returnMol()
