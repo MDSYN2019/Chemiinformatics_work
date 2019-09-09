@@ -1,8 +1,17 @@
 """@package docstring 
+
+Chem2Quant 
+----------
+
 Documentation for this module
 
-More details here 
 
+Author: Sang Young Noh 
+
+Date last updated: 09/09/2019
+
+Version: 0.0.1
+ 
 """
 
 smifile = "/home/oohnohnoh1/Desktop/GIT/Chemiinformatics_work/Chemistry2quant/src/chemistry2quant/smifiles/gdb11_size08.smi"
