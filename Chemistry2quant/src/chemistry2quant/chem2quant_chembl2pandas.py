@@ -12,7 +12,8 @@ Make sure that the permissions settings on the table has been granted to the USE
 #	from __future__ import division
 #	from __future__ import print_function
 #	from __future__ import unicode_literals
-#except importError
+#except importError:
+#	print("Placeholder")
 
 import sys
 import os 
@@ -43,7 +44,7 @@ class chemblConnect:
 # Working with the emolecules module.
     
 try:                                                                                                                                                 
-    conn = psycopg2.connect(dbname='emolecules', user='sang', host='localhost', password='Blad1bl@1234', port=5432) 
+    conn = psycopg2.connect(dbname='emolecules', user='sang', host='localhost', password='silver!!', port=5432) 
 except:                                                                                                                                              
     print("Did not connect to database")                                                                                                             
 
