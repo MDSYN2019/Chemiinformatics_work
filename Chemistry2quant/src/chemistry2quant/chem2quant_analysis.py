@@ -1,20 +1,13 @@
 """@package docstring 
-
-Chem2Quant 
-----------
-
 Documentation for this module
 
+More details here 
 
-Author: Sang Young Noh 
-
-Date last updated: 09/09/2019
-
-Version: 0.0.1
- 
 """
 
 smifile = "/home/oohnohnoh1/Desktop/GIT/Chemiinformatics_work/Chemistry2quant/src/chemistry2quant/smifiles/gdb11_size08.smi"
+directory = "/home/oohnohnoh1/Desktop/GIT/Chemiinformatics_work/Chemistry2quant/src/chemistry2quant/WIP"
+sdf_file = 'bzr.sdf'
 
 
 ## Misc modules and numpy/pandas
@@ -51,6 +44,15 @@ import tensorflow as tf
 ## Sklearn modules
 
 from sklearn.decomposition import PCA
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.svm import SVC
+
+from xgboost import XGBClassifier
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
 
 ## A neural network layer for use later 
 def neuron_layer(X, n_neurons, name, activation = None):
@@ -98,23 +100,32 @@ class rdkitProcessDf:
 
 	def MoltoSmiles(self):
 		self.ms_smiles = [Chem.MolToSmiles(x) for x in self.dataMol]
-		return self.ms_smiles
-	
+		return self.ms_smiles	
 	def MACCSfingerprintList(self):
+		"""
+		
+		"""
 		self.MACCSlist = [MACCSkeys.GenMACCSKeys(x) for x in self.dataMol]
 		return MACCSlist
 	def torsionalfingerprintList(self):
 		self.Pairslist = [Pairs.GetAtomPairFingerprint(x) for x in self.dataMol]
 		return self.Pairslist
 
-class rdkitPsi4DataGenerator:           
+class rdkitPsi4DataGenerator(rdkitProcessDf):           
 	"""
+
+	Inherits from 
+
 	Here, we want to translate the smilestoMol file into a psi4 file and run DFT calculations for each.
 	Based on the code seen in "https://iwatobipen.wordpress.com/2018/08/24/calculate-homo-and-lumo-with-psi4-rdkit-psi4/"
 	"""
-	def __init__(molfile):
+	def __init__(molfile, directory = "/home/oohnohnoh1/Desktop/GIT/Chemiinformatics_work/Chemistry2quant/src/chemistry2quant/WIP", sdf_file = 'bzr.sdf'):
 		"""
-		What does this function do?
+		What does this class do?
+		"""
+		super().__init__(directory, sdf_file) 
+		"""
+		Inheriting from the rdkitProcessDf and initializng for the methods within there
 		"""
 		self.molfile = molfile
 	def molToPsi4(self):
@@ -146,8 +157,6 @@ class rdkitPsi4DataGenerator:
 """
 Test running
 """
-directory = "/home/oohnohnoh1/Desktop/GIT/Chemiinformatics_work/Chemistry2quant/src/chemistry2quant/WIP"
-sdf_file = 'bzr.sdf'
 
 process = rdkitProcessDf(directory, sdf_file) # Initialization of the class that reads the sdf file
 molList = process.returnMol()
@@ -171,3 +180,45 @@ generating molecular fingerprints and using them to calculate molecular similari
 
 """
 
+
+"""
+
+Creating the neural network.
+
+The placeholder X will act as an input layer. During the execution phase, it will be replaced with 
+one training one training batch at a time (note that all the instances in a training batch 
+will be processed simultaneously by the neural network).
+ 
+"""
+
+def next_batch(num, data, labels):
+    '''
+    Return a total of `num` random samples and labels. 
+    '''
+    idx = np.arange(0 , len(data))
+    np.random.shuffle(idx)
+    idx = idx[:num]
+    data_shuffle = [data[ i] for i in idx]
+    labels_shuffle = [labels[ i] for i in idx]
+    return np.asarray(data_shuffle), np.asarray(labels_shuffle)
+
+def reset_graph(seed=42):
+    tf.reset_default_graph()
+    tf.set_random_seed(seed)
+    np.random.seed(seed)
+    
+def vectorize(smiles):
+        """
+        Changing the smiles representation into a one-hot representation
+        """
+        one_hot =  np.zeros((smiles.shape[0], embed , len(charset)), dtype=np.int8)
+        for i,smile in enumerate(smiles):
+            #encode the startchar
+            one_hot[i,0,char_to_int["!"]] = 1
+            #encode the rest of the chars
+            for j,c in enumerate(smile):
+                one_hot[i,j+1,char_to_int[c]] = 1
+            #Encode endchar
+            one_hot[i,len(smile)+1:,char_to_int["E"]] = 1
+        #Return two, one for input and the 2other for output
+        return one_hot[:,0:-1,:], one_hot[:,1:,:]

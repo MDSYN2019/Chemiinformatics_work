@@ -10,7 +10,6 @@ from functools import partial
 import tensorflow as tf
 from tensorflow.contrib.layers import fully_connected
 
-# to make this notebook's output stable across runs
 
 from rdkit import Chem
 from rdkit import rdBase
