@@ -382,7 +382,7 @@ vpython==7.4.7
 vtk==8.1.1
 wcwidth==0.1.7
 webencodings==0.5.1
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 widgetsnbextension==3.4.2
 wrapt==1.10.11
 wurlitzer==1.0.2
