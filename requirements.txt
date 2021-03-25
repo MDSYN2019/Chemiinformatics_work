@@ -299,7 +299,7 @@ python-dateutil==2.6.1
 pytraj==2.0.3
 pytz==2018.9
 PyWavelets==1.0.1
-PyYAML==3.13
+PyYAML==5.4
 pyzmq==17.1.2
 qcelemental==0.3.3
 QtAwesome==0.5.6
