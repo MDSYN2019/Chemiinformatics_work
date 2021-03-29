@@ -264,7 +264,7 @@ pyepsg==0.4.0
 pyface==6.0.0
 pyfancy==2.4.5
 pyflakes==2.1.0
-Pygments==2.3.1
+Pygments==2.7.4
 pygpu==0.7.6
 pyicloud-ipd==0.9.9
 PyJWT==1.7.1
