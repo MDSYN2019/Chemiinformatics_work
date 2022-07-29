@@ -167,7 +167,7 @@ mccabe==0.6.1
 MDAnalysis==0.19.2
 mdtraj==1.9.2
 mingus==0.5.1
-mistune==0.8.4
+mistune==2.0.3
 mkl-fft==1.0.10
 mkl-random==1.0.2
 MMPBSA.py==16.0
