@@ -158,7 +158,7 @@ llvmlite==0.26.0
 locket==0.2.0
 lxml==4.3.0
 lz4==2.1.6
-Mako==1.0.7
+Mako==1.2.2
 Markdown==2.6.11
 MarkupSafe==1.1.0
 matplotlib==2.0.0
