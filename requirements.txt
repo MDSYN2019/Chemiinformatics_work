@@ -246,7 +246,7 @@ psycopg2==2.7.7
 pt-core-news-sm==2.0.0
 ptyprocess==0.6.0
 PubChemPy==1.0.4
-py==1.7.0
+py==1.11.0
 py4j==0.10.7
 pyasn1==0.4.5
 pyasn1-modules==0.2.4
