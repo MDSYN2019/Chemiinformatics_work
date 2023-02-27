@@ -1,2 +1,0 @@
-from deepchem.hyper.grid_search import HyperparamOpt
-from deepchem.hyper.gaussian_process import GaussianProcessHyperparamOpt
