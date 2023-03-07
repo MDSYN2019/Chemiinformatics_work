@@ -210,7 +210,7 @@ OpenMM==7.3.1
 openmmtools==0.17.0
 openmoltools==0.8.3
 openpyxl==2.5.14
-OWSLib==0.17.1
+OWSLib==0.28.1
 packaging==19.0
 packmol-memgen==0.9.9a0
 palettable==3.1.1
