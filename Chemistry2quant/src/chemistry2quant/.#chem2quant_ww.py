@@ -1,1 +1,0 @@
-sang@sang-Lenovo-IdeaPad-S540-15IML.101972:1677321787

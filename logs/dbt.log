@@ -1,0 +1,26 @@
+
+
+============================== 2023-05-21 10:26:39.285196 | 41e09fad-4840-4b9c-82f6-a7663fb0e9d3 ==============================
+[0m10:26:39.285196 [info ] [MainThread]: Running with dbt=1.4.4
+[0m10:26:39.286470 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/sang/.dbt', 'send_anonymous_usage_stats': True, 'quiet': False, 'no_print': False, 'cache_selected_only': False, 'project_name': 'chem_dbt_project', 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m10:26:39.286697 [debug] [MainThread]: Tracking: tracking
+[0m10:26:39.291386 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f426ffe80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f426fff70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f426ff610>]}
+[0m10:26:39.293194 [debug] [MainThread]: Starter project path: /home/sang/miniconda3/lib/python3.9/site-packages/dbt/include/starter_project
+[0m10:26:43.323546 [info ] [MainThread]: 
+Your new dbt project "chem_dbt_project" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m10:26:43.324070 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f3fcca5b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f3fccadf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f3fcca880>]}
+[0m10:26:43.324384 [debug] [MainThread]: Flushing usage events

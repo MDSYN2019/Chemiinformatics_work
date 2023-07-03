@@ -1,0 +1,70 @@
+* Graph neural networks
+
+GNNs can be used for everything from coarse-grained molecular dynamics.
+
+** First understanding how a graph is represented in a computer
+
+A Graph *G* is a set of nodes *V* and edges *E*. In many fields, graphs are  often immediately
+simplified to be directed and acyclic.
+
+Molecules are  instead undirected and have cycles (rings). Thus our adjacency matrices are always symmetric
+\begin{equation}
+e_{ij} = e_{ji}
+\end{equation}
+.. because there is no concept of direction in chemical bonds.
+
+The edges themselves have features,  so that e_{ij} is itself a vector. Then the adjecency matrix becomes a rank 3 tensor.
+Examples of edge features might be *covalent bond order* or *distance between two bonds*. (Could also include the type of bond)
+
+TODO
+
+** A Graph Neural Network
+
+*GNN* is a neural network with two defining attributes:
+
+-> Its input is a graph
+-> Its output is permutation equivarant.
+
+-> A GNN is *permutation equivariant* if the output change the same way as these changes. If you are trying to model
+a per-atom quantity like partial charge or chemical shift, this is obviously essential. If you change the order of atoms
+input, you would expect the order of their partial charges to similarly change.
+
+Often we want to model a whole-molecule property, like solubility or energy. This should be invariant to changing the order
+of the atoms. To make an equivariant model invariant, we use read-outs
+
+
+TODO
+..
+
+
+These simple examples differ from real GNNs in the following ways:
+
+i). They give s single feature vector output, which throws away per-node information.
+
+ii). They do not use the adjacency matrix - Let's see a real GNN that has these properties while maintaining permutation invariance.
+
+
+*The choice of averaging over neighbours is what makes a GCN layer permutation equivaraient* - if you changed the order of atoms input, then
+the surrounding atoms would still be the 'same' no matter how you changed the order of the atoms input...
+
+
+We multiply the neighbouring features by a trainable matrix before the averaging.
+
+\begin{equation}
+v_{il} = {\sigma}\left( \frac{1}{d_{i}}e_{ij}v_{jk}w_{kl}\right)
+\end{equation}
+
+*i* = node we are considering
+*j* = the neighbour index
+*k* = node input feature
+*l* = output node feature
+
+Building understanding about the GCN is important for understanding other GNNs. You can view the
+GCN layer as a way to 'communicate' between a node and its neighbour. The output 
+
+
+* Other articles involving smiles and cheminiformatics
+
+https://www.cheminformania.com/master-your-molecule-generator-seq2seq-rnn-models-with-smiles-in-keras/
+
+
